@@ -51,7 +51,7 @@ export class LineChartComponent extends BaseNeonComponent implements OnInit,
         unsharedFilterField: Object,
         unsharedFilterValue: string
     };
-    private active: {
+    active: {
         dateField: FieldMetaData,
         aggregationField: FieldMetaData,
         aggregationFieldHidden: boolean,
@@ -71,7 +71,7 @@ export class LineChartComponent extends BaseNeonComponent implements OnInit,
         inactiveColor: string
     };
 
-    private selection: {
+    selection: {
         mouseDown: boolean
         startX: number,
         height: number,
@@ -85,7 +85,7 @@ export class LineChartComponent extends BaseNeonComponent implements OnInit,
         endDate: Date
     };
 
-    protected chart: {
+    chart: {
         data: {
             labels: any[],
             datasets: any[]
@@ -97,7 +97,7 @@ export class LineChartComponent extends BaseNeonComponent implements OnInit,
     private colorSchemeService: ColorSchemeService;
 
     constructor(connectionService: ConnectionService, datasetService: DatasetService, filterService: FilterService,
-        exportService: ExportService, injector: Injector, themesService: ThemesService, colorSchemeSrv: ColorSchemeService) {
+        exportService: ExportService, injector: Injector, public themesService: ThemesService, colorSchemeSrv: ColorSchemeService) {
         super(connectionService, datasetService, filterService, exportService, injector, themesService);
         this.optionsFromConfig = {
             title: this.injector.get('title', null),

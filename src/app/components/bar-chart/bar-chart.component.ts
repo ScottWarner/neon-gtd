@@ -47,7 +47,7 @@ export class BarChartComponent extends BaseNeonComponent implements OnInit,
         unsharedFilterField: Object,
         unsharedFilterValue: string
     };
-    private active: {
+    active: {
         dataField: FieldMetaData,
         aggregationField: FieldMetaData,
         aggregationFieldHidden: boolean,
@@ -59,7 +59,7 @@ export class BarChartComponent extends BaseNeonComponent implements OnInit,
         aggregation: string
     };
 
-    protected chart: {
+    chart: {
         data: {
             labels: any[],
             datasets: any[]
@@ -74,7 +74,7 @@ export class BarChartComponent extends BaseNeonComponent implements OnInit,
     };
 
     constructor(connectionService: ConnectionService, datasetService: DatasetService, filterService: FilterService,
-        exportService: ExportService, injector: Injector, themesService: ThemesService) {
+        exportService: ExportService, injector: Injector, public themesService: ThemesService) {
         super(connectionService, datasetService, filterService, exportService, injector, themesService);
         this.optionsFromConfig = {
             title: this.injector.get('title', null),

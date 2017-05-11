@@ -46,7 +46,7 @@ export class ScatterPlotComponent extends BaseNeonComponent implements OnInit,
         unsharedFilterField: Object,
         unsharedFilterValue: string
     };
-    private active: {
+    active: {
         xField: FieldMetaData,
         yField: FieldMetaData,
         labelField: FieldMetaData,
@@ -64,7 +64,7 @@ export class ScatterPlotComponent extends BaseNeonComponent implements OnInit,
         inactiveColor: string
     };
 
-    private selection: {
+    selection: {
         mouseDown: boolean
         startX: number,
         startY: number,

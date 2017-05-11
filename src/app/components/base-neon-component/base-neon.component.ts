@@ -25,12 +25,12 @@ export abstract class BaseNeonComponent implements OnInit,
 
     protected initializing: boolean;
 
-    protected meta: {
+    meta: {
         databases: DatabaseMetaData[],
         database: DatabaseMetaData,
         tables: TableMetaData[],
         table: TableMetaData,
-        unsharedFilterField: Object,
+        unsharedFilterField: any,
         unsharedFilterValue: string,
         fields: FieldMetaData[]
     };
@@ -41,14 +41,13 @@ export abstract class BaseNeonComponent implements OnInit,
         protected filterService: FilterService,
         private exportService: ExportService,
         protected injector: Injector,
-        private themesService: ThemesService) {
+        public themesService: ThemesService) {
         //These assignments just eliminated unused warnings that occur even though the arguments are
         //automatically assigned to instance variables.
         this.exportService = this.exportService;
         this.filterService = this.filterService;
         this.connectionService = this.connectionService;
         this.injector = this.injector;
-        this.themesService = themesService;
         this.messenger = new neon.eventing.Messenger();
 
         this.meta = {

@@ -28,17 +28,17 @@ export class TextCloudComponent extends BaseNeonComponent implements OnInit, OnD
         database: string,
         table: string,
         dataField: string,
-        unsharedFilterField: Object,
+        unsharedFilterField: any,
         unsharedFilterValue: string
     };
-    private active: {
+    active: {
         dataField: FieldMetaData,
         andFilters: boolean,
         limit: number,
         textColor: string,
         allowsTranslations: boolean,
         filterable: boolean,
-        data: Object[]
+        data: any[]
     };
 
     constructor(connectionService: ConnectionService, datasetService: DatasetService, filterService: FilterService,
@@ -64,6 +64,10 @@ export class TextCloudComponent extends BaseNeonComponent implements OnInit, OnD
         };
         this.queryTitle = 'Text Cloud';
     };
+
+    requestExport(): void {
+
+    }
 
     subNgOnInit() {
         this.updateTextCloudSettings();
@@ -157,6 +161,12 @@ export class TextCloudComponent extends BaseNeonComponent implements OnInit, OnD
         this.queryTitle = 'Text Cloud by ' + this.active.dataField.prettyName;
     }
 
+    handleChangeUnsharedFilterField() { }
+
+    handleChangeUnsharedFilterValue() { }
+
+    handleRemoveUnsharedFilter() { }
+
     handleFiltersChangedEvent() {
         // Get neon filters
         // See if any neon filters are local filters and set/clear appropriately
@@ -183,11 +193,11 @@ export class TextCloudComponent extends BaseNeonComponent implements OnInit, OnD
         this.executeQueryChain();
     };
 
-    getDataLayers(): Object[] {
+    getDataLayers(): any[] {
         return [this.active];
     };
 
-    getFilterFields(): Object[] {
+    getFilterFields(): any[] {
         return [this.active.dataField];
     };
 
